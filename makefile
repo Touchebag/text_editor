@@ -1,13 +1,13 @@
-# Compiler options
-CC       := g++
-CC_FLAGS :=
-LD_FLAGS := -lncurses
-
 # Directories
 SRC_DIR := src
 INC_DIR := include
 OBJ_DIR := obj
 LIB_DIR := lib
+
+# Compiler options
+CC       := g++
+CC_FLAGS := -I$(INC_DIR)
+LD_FLAGS := -lncurses
 
 # Files
 SRC := $(wildcard  $(SRC_DIR)/*.cpp)
