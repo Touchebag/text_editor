@@ -2,15 +2,16 @@
 #include <backend.h>
 
 int main(){
-  backend_init();
+  backend::init();
 
   char ch = 0;
   while(ch != 27){
-    ch = backend_get_char();
-    backend_put_char(ch);
+    ch = backend::get_char();
+
+    backend::put_char(ch);
   };
 
-  backend_exit();
+  backend::exit();
 
   return 0;
 }
