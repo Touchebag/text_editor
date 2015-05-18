@@ -1,28 +1,37 @@
-/**
- * Backend interface
- * Used to abstract it away from the rest of the code
- */
 #include <backend.h>
 
-int backend_init() {
-  // Clear and prepare screen
-  initscr();
+namespace backend {
 
-  // Do not echo while typing
-  noecho();
+  void init() {
+    // Clear and prepare screen
+    initscr();
 
-  // Do not wait for enter
-  cbreak();
-};
+    // Do not echo while typing
+    noecho();
 
-int backend_exit() {
-  endwin();
-};
+    // Do not wait for enter
+    cbreak();
+  };
 
-int backend_get_char() {
-  getch();
-};
+  void exit() {
+    endwin();
+  };
 
-int backend_put_char(int ch) {
-  addch(ch);
-};
+  int get_char() {
+    return getch();
+  };
+
+  void put_char(int ch) {
+    addch(ch);
+  };
+
+  dim get_window_size() {
+    dim xy;
+    xy.x = 0;
+    xy.y = 0;
+    getmaxyx(stdscr, xy.y, xy.x);
+
+    return xy;
+  };
+
+}
