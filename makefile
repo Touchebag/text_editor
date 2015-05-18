@@ -6,7 +6,7 @@ LIB_DIR := lib
 
 # Compiler options
 CC       := g++
-CC_FLAGS := -I$(INC_DIR)
+CC_FLAGS := -I$(INC_DIR) -Wall
 LD_FLAGS := -lncurses
 
 # Files
