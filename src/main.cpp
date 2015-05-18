@@ -1,16 +1,16 @@
 #include <stdio.h>
-#include <ncurses.h>
+#include <backend.h>
 
 int main(){
-  initscr();
-  noecho();
-  cbreak();
+  backend_init();
+
   char ch = 0;
   while(ch != 27){
-    ch = getch();
-    addch(ch);
+    ch = backend_get_char();
+    backend_put_char(ch);
   };
 
-  endwin();
+  backend_exit();
+
   return 0;
 }
